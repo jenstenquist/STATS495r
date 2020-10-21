@@ -1,0 +1,15 @@
+---
+title: "Home"
+---
+
+This is the home page
+
+Hello world
+```{r}
+library(ggplot2)
+ggplot(diamonds) + 
+  geom_point(aes(x=carat, y = price, color = color))
+```
+
+prepend github url where index has been committed, to the end of the knitted doc
+https://htmlpreview.github.io/?...

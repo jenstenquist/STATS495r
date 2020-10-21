@@ -1,0 +1,9 @@
+---
+title: "About"
+---
+
+Specktrum is a cool company
+
+Here is a picture of a UVC light
+
+![](IMG_0044.jpg)

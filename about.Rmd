@@ -1,0 +1,66 @@
+---
+title: "Improved"
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE)
+```
+
+```{r}
+# Load packages
+library(tidyverse)
+library(readr)
+library(dplyr)
+library(readxl)
+library(tidyr)
+library(reshape2)
+```
+
+
+```{r}
+# Replicate original visualization
+df <- data.frame(response = c("Yes to runoffs", "No to runoffs", "I don't know"), `Statewide` = c(.49, .25, .26), `District` = c(.53, .24, .23))
+
+# Join the two date frames on their x values
+df.m <- melt(df, id.vars='response')
+
+# Set the order
+order <- c("Yes to runoffs", "No to runoffs", "I don't know")
+
+# Create the chart
+ggplot(data = df.m, aes(x = response, y = value)) +
+  geom_col(aes(fill = variable), width = .66, position = "dodge") +
+  labs(
+    title = "Utah voters want runoff elections",
+    subtitle = "Polls show preference for holding a runoff election between top two canditates when there's no majority ") +
+  scale_x_discrete(limits = order) +
+  scale_y_continuous(labels=scales::percent_format()) +
+  scale_fill_discrete(name = "Poll Population") +
+  scale_fill_manual(values = c("#F8A142", "#fad2a7")) +
+  theme(panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(), 
+        axis.ticks = element_blank(),
+        title = element_text(color = "#012548", size = 15),
+        plot.subtitle = element_text(size = 10), 
+        axis.line = element_blank(),
+        axis.text.x = element_text(color = "#012548", size = 12),
+        axis.text.y = element_text(color = "grey75"),
+        axis.title = element_blank(),
+        legend.text = element_text(size = 10, color = "#012548"),
+        legend.title = element_text(size = 13)
+     )
+```
+
+
+
+
+
+
+
+
+
+
+
+Source: Poll conducted by Scott Rasmussen July 27 - Aug 1, 2020 of 1,000 registered Utah voters and 
+800 registered 4th Congressional District voters.
+

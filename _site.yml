@@ -1,0 +1,11 @@
+name: "Runoff Elections in Utah"
+navbar:
+  left:
+    - text: "Original"
+      href: index.html
+    - text: "Improved"
+      href: about.html
+output: 
+  html_document:
+    theme: cosmo
+    
